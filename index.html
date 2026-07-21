@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ram Tapis — General VA for Gyms | Gym Intelligence Partner</title>
+<meta name="description" content="Geramel 'Ram' Tapis — General Virtual Assistant for the gym & fitness industry. Currently placed with a gym owner through WrkPod. Six years of CX & QA experience, now building Gym Intelligence Partner.">
+<meta property="og:title" content="Ram Tapis — Gym Intelligence Partner, General VA for Gyms">
+<meta property="og:description" content="Six years of CX & QA experience, now all-in on gym owners. Placed through WrkPod. Building Gym Intelligence Partner.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0E10;
+  --ink-2:#151519;
+  --panel:#1B1C21;
+  --panel-2:#202126;
+  --chalk:#F3F1EA;
+  --chalk-dim:rgba(243,241,234,0.64);
+  --chalk-faint:rgba(243,241,234,0.38);
+  --ember:#FF4B2E;
+  --ember-dim:rgba(255,75,46,0.14);
+  --brass:#C9A15A;
+  --brass-dim:rgba(201,161,90,0.14);
+  --line:rgba(243,241,234,0.10);
+  --line-strong:rgba(243,241,234,0.20);
+  --good:#5FD98A;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important}
+}
+body{font-family:"Inter",sans-serif;background:var(--ink);color:var(--chalk);overflow-x:hidden;line-height:1.5}
+::selection{background:var(--ember);color:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.display{font-family:"Bebas Neue",sans-serif;letter-spacing:0.01em}
+
+/* TAPE TEXTURE */
+.tape{height:6px;width:100%;background:repeating-linear-gradient(-45deg,var(--ember) 0 14px,var(--ink) 14px 28px);opacity:0.9}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;background:rgba(14,14,16,0.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:padding 0.25s}
+nav.scrolled{padding:0.75rem 5%}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
+.nav-logo-mark{width:34px;height:34px;border-radius:6px;background:var(--ember);display:flex;align-items:center;justify-content:center;font-family:"Bebas Neue",sans-serif;font-size:1.2rem;color:var(--ink);flex-shrink:0}
+.nav-logo-text{font-family:"Bebas Neue",sans-serif;font-size:1.3rem;letter-spacing:0.03em;color:var(--chalk);line-height:1}
+.nav-logo-sub{font-family:"IBM Plex Mono",monospace;font-size:0.6rem;letter-spacing:0.14em;color:var(--chalk-faint);text-transform:uppercase}
+.nav-links{display:flex;gap:2.1rem;list-style:none;align-items:center}
+.nav-links a{font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-dim);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--ember)}
+.nav-cta{font-family:"IBM Plex Mono",monospace !important;font-size:0.7rem !important;font-weight:600;color:var(--ink) !important;background:var(--ember);padding:0.6rem 1.2rem;border-radius:3px;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:1.6rem}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:0.4rem}
+.nav-toggle span{width:22px;height:2px;background:var(--chalk)}
+.mobile-panel{display:none;position:fixed;top:64px;left:0;right:0;background:var(--ink-2);border-bottom:1px solid var(--line);z-index:199;padding:1rem 5% 1.5rem;flex-direction:column;gap:1rem}
+.mobile-panel.open{display:flex}
+.mobile-panel a{font-family:"IBM Plex Mono",monospace;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--chalk-dim);text-decoration:none;padding:0.4rem 0}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.25fr 0.9fr;gap:3rem;padding:8.5rem 5% 4rem;align-items:center;position:relative}
+.hero::before{content:"";position:absolute;top:0;right:0;width:45%;height:100%;background:radial-gradient(ellipse at top right, var(--ember-dim), transparent 60%);pointer-events:none;z-index:0}
+.hero-left{position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--brass);margin-bottom:1.4rem}
+.hero-eyebrow::before{content:"";width:26px;height:1.5px;background:var(--brass)}
+.hero-name{font-family:"Bebas Neue",sans-serif;font-size:clamp(3.6rem,8vw,6.4rem);line-height:0.92;letter-spacing:0.01em;color:var(--chalk)}
+.hero-name span{color:var(--ember)}
+.hero-tag{font-family:"Bebas Neue",sans-serif;font-size:clamp(1.1rem,2vw,1.5rem);letter-spacing:0.06em;color:var(--chalk-dim);margin:0.6rem 0 1.6rem;text-transform:uppercase}
+.hero-desc{font-size:1rem;font-weight:300;color:var(--chalk-dim);max-width:520px;line-height:1.75;margin-bottom:2.2rem}
+.hero-desc strong{color:var(--chalk);font-weight:600}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;font-family:"IBM Plex Mono",monospace;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);background:var(--ember);padding:0.9rem 1.6rem;border-radius:3px;text-decoration:none;transition:transform 0.2s, box-shadow 0.2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,75,46,0.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;font-family:"IBM Plex Mono",monospace;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--chalk);background:transparent;border:1px solid var(--line-strong);padding:0.9rem 1.6rem;border-radius:3px;text-decoration:none;transition:border-color 0.2s, color 0.2s}
+.btn-secondary:hover{border-color:var(--ember);color:var(--ember)}
+.hero-stats{display:flex;gap:2.2rem;padding-top:1.8rem;border-top:1px solid var(--line);max-width:520px}
+.stat-num{font-family:"Bebas Neue",sans-serif;font-size:2.1rem;color:var(--ember);line-height:1}
+.stat-label{font-family:"IBM Plex Mono",monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--chalk-faint);margin-top:0.3rem}
+
+/* HERO PHOTO */
+.hero-right{display:flex;flex-direction:column;align-items:center;gap:1.8rem;position:relative;z-index:1}
+.hero-photo{width:100%;max-width:260px;height:auto;display:block;filter:drop-shadow(0 20px 34px rgba(0,0,0,0.5))}
+
+/* ROSTER CARD */
+.roster{width:100%;position:relative;z-index:1;background:var(--panel);border:1px solid var(--line-strong);border-radius:10px;overflow:hidden}
+.roster-head{background:var(--panel-2);padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.roster-head-label{font-family:"IBM Plex Mono",monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--chalk-faint)}
+.roster-status{display:flex;align-items:center;gap:0.45rem;font-family:"IBM Plex Mono",monospace;font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--good)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--good);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.45;transform:scale(1.5)}}
+.roster-body{padding:1.4rem}
+.roster-row{display:flex;justify-content:space-between;align-items:baseline;padding:0.75rem 0;border-bottom:1px solid var(--line)}
+.roster-row:last-child{border-bottom:none}
+.roster-k{font-family:"IBM Plex Mono",monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-faint)}
+.roster-v{font-size:0.86rem;font-weight:500;color:var(--chalk);text-align:right}
+.roster-foot{padding:1rem 1.4rem;background:var(--panel-2);border-top:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:0.66rem;color:var(--brass);letter-spacing:0.04em}
+
+/* SECTION SHARED */
+section{padding:6.5rem 5%}
+.section-head{margin-bottom:3.2rem;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ember);margin-bottom:0.9rem}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--ember)}
+.section-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1.05;color:var(--chalk);margin-bottom:0.9rem}
+.section-sub{font-size:0.95rem;font-weight:300;color:var(--chalk-dim);line-height:1.7}
+
+/* ABOUT */
+.about{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:4rem}
+.about-quote{font-family:"Bebas Neue",sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.15;color:var(--chalk)}
+.about-quote span{color:var(--ember)}
+.about-photo{width:100%;max-width:220px;height:auto;display:block;margin-top:2.2rem}
+.about-text p{font-size:0.94rem;font-weight:300;color:var(--chalk-dim);line-height:1.8;margin-bottom:1.1rem}
+.about-text strong{color:var(--chalk);font-weight:600}
+.traits{display:flex;flex-direction:column;gap:0.9rem;margin-top:1.8rem}
+.trait{display:flex;gap:0.9rem;align-items:flex-start;padding:0.9rem 1rem;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.trait-mark{font-family:"IBM Plex Mono",monospace;color:var(--ember);font-weight:600;flex-shrink:0;font-size:0.85rem;margin-top:0.1rem}
+.trait-name{font-size:0.86rem;font-weight:600;color:var(--chalk)}
+.trait-desc{font-size:0.78rem;color:var(--chalk-faint);margin-top:0.15rem;line-height:1.5}
+
+/* PROGRAM / PILLARS */
+.program-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.set-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:2rem;position:relative;transition:border-color 0.25s, transform 0.25s}
+.set-card:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+.set-label{font-family:"IBM Plex Mono",monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--brass);margin-bottom:0.8rem}
+.set-title{font-family:"Bebas Neue",sans-serif;font-size:1.8rem;color:var(--chalk);margin-bottom:0.7rem;letter-spacing:0.02em}
+.set-desc{font-size:0.85rem;color:var(--chalk-dim);line-height:1.65;margin-bottom:1.3rem}
+.load-row{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.2rem}
+.load-label{font-family:"IBM Plex Mono",monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--chalk-faint);white-space:nowrap}
+.load-bar{display:flex;gap:4px}
+.load-block{width:16px;height:8px;border-radius:1px;background:var(--line-strong)}
+.load-block.filled{background:var(--ember)}
+.set-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.set-tag{font-family:"IBM Plex Mono",monospace;font-size:0.66rem;padding:0.3rem 0.65rem;border-radius:99px;border:1px solid var(--line-strong);color:var(--chalk-dim)}
+
+/* LOG / TIMELINE */
+.log{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.log-list{display:flex;flex-direction:column;max-width:820px}
+.log-item{display:grid;grid-template-columns:180px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--line);position:relative}
+.log-item:last-child{border-bottom:1px solid var(--line)}
+.log-date{font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.03em;color:var(--brass);line-height:1.5}
+.log-tag{display:inline-block;margin-top:0.5rem;font-family:"IBM Plex Mono",monospace;font-size:0.6rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--good);background:rgba(95,217,138,0.1);padding:0.2rem 0.5rem;border-radius:3px}
+.log-tag.part{color:var(--brass);background:var(--brass-dim)}
+.log-role{font-family:"Bebas Neue",sans-serif;font-size:1.5rem;color:var(--chalk);letter-spacing:0.02em;margin-bottom:0.2rem}
+.log-company{font-size:0.8rem;color:var(--chalk-faint);margin-bottom:0.8rem}
+.log-desc{font-size:0.85rem;color:var(--chalk-dim);line-height:1.65;margin-bottom:0.8rem}
+.log-bullets{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.log-bullets li{font-size:0.82rem;color:var(--chalk-dim);line-height:1.6;padding-left:1rem;position:relative}
+.log-bullets li::before{content:"";position:absolute;left:0;top:0.55em;width:5px;height:5px;background:var(--ember)}
+.log-photos{display:flex;gap:0.9rem;flex-wrap:wrap;margin-top:1.1rem}
+.log-photo{flex:1 1 220px;width:100%;max-width:320px;aspect-ratio:3/2;object-fit:cover;border-radius:8px;border:1px solid var(--line-strong)}
+
+/* TOOLS */
+.tools-wrap{display:flex;flex-wrap:wrap;gap:0.7rem}
+.tool-chip{display:flex;align-items:center;gap:0.5rem;font-family:"IBM Plex Mono",monospace;font-size:0.76rem;letter-spacing:0.02em;color:var(--chalk-dim);background:var(--panel);border:1px solid var(--line);padding:0.6rem 1rem;border-radius:6px;transition:border-color 0.2s, color 0.2s}
+.tool-chip:hover{border-color:var(--ember);color:var(--chalk)}
+.tool-chip::before{content:"";width:6px;height:6px;background:var(--ember);border-radius:1px;flex-shrink:0}
+
+/* CONTACT */
+.contact{background:var(--ink-2);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:3.5rem;align-items:start}
+.contact-list{display:flex;flex-direction:column;gap:0.8rem;margin-top:1.6rem}
+.contact-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;background:var(--panel);border:1px solid var(--line);border-radius:8px;text-decoration:none;transition:border-color 0.2s}
+.contact-item:hover{border-color:var(--ember)}
+.ci-icon{width:34px;height:34px;border-radius:6px;background:var(--ember-dim);color:var(--ember);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.95rem}
+.ci-label{font-family:"IBM Plex Mono",monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-faint)}
+.ci-value{font-size:0.86rem;color:var(--chalk);font-weight:500;margin-top:0.1rem}
+.form-field{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.form-field label{font-family:"IBM Plex Mono",monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--chalk-faint)}
+.form-field input,.form-field select,.form-field textarea{background:var(--panel);border:1px solid var(--line-strong);border-radius:6px;padding:0.85rem 1rem;color:var(--chalk);font-family:"Inter",sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.form-field input::placeholder,.form-field textarea::placeholder{color:var(--chalk-faint)}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--ember)}
+.form-field textarea{height:120px;resize:none}
+.btn-submit{display:inline-flex;align-items:center;gap:0.55rem;font-family:"IBM Plex Mono",monospace;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);background:var(--ember);border:none;padding:0.95rem 1.8rem;border-radius:4px;cursor:pointer;transition:transform 0.2s}
+.btn-submit:hover{transform:translateY(-2px)}
+.btn-submit:disabled{opacity:0.55;cursor:not-allowed;transform:none}
+.form-msg{border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.1rem;font-size:0.84rem;display:none}
+.form-msg.success{background:rgba(95,217,138,0.1);border:1px solid rgba(95,217,138,0.35);color:var(--good)}
+.form-msg.error{background:var(--ember-dim);border:1px solid rgba(255,75,46,0.4);color:var(--ember)}
+
+/* FOOTER */
+footer{padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
+.footer-logo{font-family:"Bebas Neue",sans-serif;font-size:1.1rem;letter-spacing:0.03em;color:var(--chalk)}
+.footer-tag{font-family:"IBM Plex Mono",monospace;font-size:0.72rem;color:var(--chalk-faint)}
+.footer-copy{font-family:"IBM Plex Mono",monospace;font-size:0.68rem;color:var(--chalk-faint)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.08s}
+.reveal-d2{transition-delay:0.16s}
+.reveal-d3{transition-delay:0.24s}
+
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;padding-top:7.5rem}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .program-grid{grid-template-columns:1fr}
+  .log-item{grid-template-columns:1fr;gap:0.6rem}
+  .contact-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  section{padding:4.5rem 5%}
+  .hero-stats{flex-wrap:wrap;gap:1.4rem}
+  .nav-logo-sub{letter-spacing:0.06em;font-size:0.56rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="nav-logo">
+    <div class="nav-logo-mark">S</div>
+    <div>
+      <div class="nav-logo-text">RAM TAPIS</div>
+      <div class="nav-logo-sub">Gym Intelligence Partner</div>
+    </div>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#log">Log</a></li>
+      <li><a href="#tools">Tools</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Let's talk</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#about">About</a>
+  <a href="#program">Program</a>
+  <a href="#log">Log</a>
+  <a href="#tools">Tools</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-eyebrow">General VA &middot; Gym &amp; Fitness Industry</div>
+    <h1 class="hero-name">GERAMEL <span>"RAM"</span> TAPIS</h1>
+    <div class="hero-tag">Building Gym Intelligence Partner &mdash; VA for gym owners</div>
+    <p class="hero-desc">I keep gym inboxes, calendars, and follow-ups moving so owners can stay on the floor coaching. Currently placed as a <strong>General VA with a gym owner</strong>, so I take on new gym owners <strong>part-time</strong> &mdash; and if your workload needs more than that, I can refer and personally supervise another trained VA on your account.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Let's talk
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#program" class="btn-secondary">See the program</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">6+</div><div class="stat-label">Years CX &amp; QA</div></div>
+      <div><div class="stat-num">15</div><div class="stat-label">Analysts led</div></div>
+      <div><div class="stat-num">4</div><div class="stat-label">Industries served</div></div>
+      <div><div class="stat-num">1</div><div class="stat-label">Gym partner, live</div></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="DSC03668-removebg-preview.png" alt="Geramel &quot;Ram&quot; Tapis" class="hero-photo reveal">
+    <div class="roster reveal reveal-d1">
+      <div class="roster-head">
+        <div class="roster-head-label">Roster Card</div>
+        <div class="roster-status"><span class="dot"></span>In Session</div>
+      </div>
+      <div class="roster-body">
+        <div class="roster-row"><div class="roster-k">Role</div><div class="roster-v">General VA</div></div>
+        <div class="roster-row"><div class="roster-k">Partner</div><div class="roster-v">WrkPod</div></div>
+        <div class="roster-row"><div class="roster-k">Focus</div><div class="roster-v">Gym &amp; Fitness Ops</div></div>
+        <div class="roster-row"><div class="roster-k">Based</div><div class="roster-v">Negros Oriental, PH</div></div>
+        <div class="roster-row"><div class="roster-k">Time zone</div><div class="roster-v">GMT+8 &middot; AEST overlap</div></div>
+        <div class="roster-row"><div class="roster-k">Brand</div><div class="roster-v">Gym Intelligence Partner</div></div>
+      </div>
+      <div class="roster-foot mono">&gt; Open part-time &middot; can refer &amp; supervise a VA</div>
+    </div>
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="eyebrow">About</div>
+      <div class="about-quote">Ditched the degree, picked up the headset &mdash; <span>now I go full throttle for your gym.</span></div>
+      <img src="DSC03643-removebg-preview.png" alt="Geramel &quot;Ram&quot; Tapis portrait" class="about-photo">
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="about-text">
+        <p>I hold a <strong>BS in Marine Engineering</strong>, but six years ago I chose people over machines. What followed was six years building a career in <strong>Customer Experience and Quality Assurance</strong> &mdash; starting on the frontline and eventually leading a team of <strong>15 QA analysts</strong>.</p>
+        <p>That team worked across <strong>telecom, e-commerce, fintech, and technical support</strong> &mdash; high-volume, high-pressure environments where a missed follow-up costs real money and real trust. That's the standard I bring to a gym's inbox.</p>
+        <p>I've also worked through real setbacks outside of work &mdash; the kind that teach you patience and follow-through you don't get from a training manual. It's part of why I show up steady, even when the week gets messy.</p>
+        <p>Right now I'm placed as a <strong>General VA with a gym owner through WrkPod</strong>, and putting everything I learn on the floor into <strong>Gym Intelligence Partner</strong> &mdash; a VA practice built specifically for gym and studio owners.</p>
+      </div>
+      <div class="traits">
+        <div class="trait"><div class="trait-mark">01</div><div><div class="trait-name">Calm under pressure</div><div class="trait-desc">Six years of high-volume CX means very little at work rattles me.</div></div></div>
+        <div class="trait"><div class="trait-mark">02</div><div><div class="trait-name">No playbook needed</div><div class="trait-desc">Give me the goal and access &mdash; I'll figure out the rest.</div></div></div>
+        <div class="trait"><div class="trait-mark">03</div><div><div class="trait-name">Client-first, always</div><div class="trait-desc">I treat your gym's inbox and calendar like they're mine to protect.</div></div></div>
+        <div class="trait"><div class="trait-mark">04</div><div><div class="trait-name">Proactive, not reactive</div><div class="trait-desc">I'm always asking what's about to break before it does.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="section-head reveal">
+    <div class="eyebrow">The Program</div>
+    <h2 class="section-title">Four lifts I train for gym owners.</h2>
+    <p class="section-sub">Trained across all four. Admin and Sales are where I'm strongest today &mdash; Content and Numbers are actively in progress.</p>
+  </div>
+  <div class="program-grid">
+    <div class="set-card reveal">
+      <div class="set-label">Set 01 &mdash; Strongest</div>
+      <div class="set-title">Admin</div>
+      <p class="set-desc">Inbox triage, billing follow-ups, member enquiries, escalations, Red Flag reporting, calendar and EA support. Built on six years of high-volume CX ops.</p>
+      <div class="load-row"><div class="load-label">Load</div><div class="load-bar">
+        <div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block filled"></div>
+      </div></div>
+      <div class="set-tags">
+        <span class="set-tag">Member inbox</span><span class="set-tag">Billing follow-up</span><span class="set-tag">Escalations</span><span class="set-tag">Red Flag reports</span><span class="set-tag">Calendar mgmt</span>
+      </div>
+    </div>
+    <div class="set-card reveal reveal-d1">
+      <div class="set-label">Set 02 &mdash; Strong</div>
+      <div class="set-title">Sales</div>
+      <p class="set-desc">Lead follow-up by phone, chat, and email. CRM hygiene, pipeline management, and trial or intro-offer conversion sequences.</p>
+      <div class="load-row"><div class="load-label">Load</div><div class="load-bar">
+        <div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block"></div>
+      </div></div>
+      <div class="set-tags">
+        <span class="set-tag">Lead follow-up</span><span class="set-tag">CRM hygiene</span><span class="set-tag">Outbound calls</span><span class="set-tag">Sell-by-chat</span><span class="set-tag">Trial conversion</span>
+      </div>
+    </div>
+    <div class="set-card reveal reveal-d2">
+      <div class="set-label">Set 03 &mdash; Growing</div>
+      <div class="set-title">Content</div>
+      <p class="set-desc">Social media scheduling, Canva design, and a content calendar that actually gets used every week.</p>
+      <div class="load-row"><div class="load-label">Load</div><div class="load-bar">
+        <div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block"></div><div class="load-block"></div>
+      </div></div>
+      <div class="set-tags">
+        <span class="set-tag">Social scheduling</span><span class="set-tag">Canva design</span><span class="set-tag">Content calendar</span><span class="set-tag">Community mgmt</span>
+      </div>
+    </div>
+    <div class="set-card reveal reveal-d3">
+      <div class="set-label">Set 04 &mdash; Developing</div>
+      <div class="set-title">Numbers</div>
+      <p class="set-desc">Xero data entry and bank reconciliation, with AU GST/BAS awareness. Xero Level 1 Certified and actively building this pillar.</p>
+      <div class="load-row"><div class="load-label">Load</div><div class="load-bar">
+        <div class="load-block filled"></div><div class="load-block filled"></div><div class="load-block"></div><div class="load-block"></div><div class="load-block"></div>
+      </div></div>
+      <div class="set-tags">
+        <span class="set-tag">Xero L1</span><span class="set-tag">Bank reconciliation</span><span class="set-tag">GST/BAS</span><span class="set-tag">P&amp;L summaries</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOG -->
+<section class="log" id="log">
+  <div class="section-head reveal">
+    <div class="eyebrow">The Log</div>
+    <h2 class="section-title">Six years on record.</h2>
+    <p class="section-sub">From frontline support to supervising a 15-person QA team &mdash; now applying it all to the gym floor.</p>
+  </div>
+  <div class="log-list">
+    <div class="log-item reveal">
+      <div class="log-date">APR 2026 &mdash; PRESENT<br>Remote<span class="log-tag">Current</span></div>
+      <div>
+        <div class="log-role">General VA &mdash; Gym Owner Partner</div>
+        <div class="log-company">WrkPod</div>
+        <p class="log-desc">Placed as a General VA with an Australian gym owner through WrkPod, handling day-to-day admin and sales support while building the Gym Intelligence Partner brand alongside it.</p>
+        <ul class="log-bullets">
+          <li>Member inbox management and day-to-day enquiries</li>
+          <li>Billing follow-up and escalation handling</li>
+          <li>Lead follow-up and CRM upkeep</li>
+          <li>Laying the groundwork for Gym Intelligence Partner's own client roster</li>
+        </ul>
+        <div class="log-photos">
+          <img src="ram-wrkpod-award.jpg" alt="Certificate of Appreciation presented to Geramel Tapis by the WrkPod team" class="log-photo">
+          <img src="ram-wrkpod-team.jpg" alt="Geramel Tapis briefing the WrkPod team" class="log-photo">
+        </div>
+      </div>
+    </div>
+    <div class="log-item reveal">
+      <div class="log-date">FEB 2025 &mdash; FEB 2026<br>Remote</div>
+      <div>
+        <div class="log-role">Fractional CX Support</div>
+        <div class="log-company">Remote</div>
+        <p class="log-desc">Remote customer support across email and chat channels, maintaining quality standards and productivity in a fully remote environment.</p>
+        <ul class="log-bullets">
+          <li>Resolved customer concerns while holding service quality standards</li>
+          <li>Supported documentation, workflows, and process updates</li>
+          <li>Maintained response targets in a remote-first environment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="log-item reveal">
+      <div class="log-date">JUL 2019 &mdash; MAR 2025<br>Remote &amp; Hybrid</div>
+      <div>
+        <div class="log-role">Customer Support &amp; QA Supervisor</div>
+        <div class="log-company">Alorica</div>
+        <p class="log-desc">Nearly six years growing from front-line associate to supervising 15 Quality Analysts across multiple programs and channels.</p>
+        <ul class="log-bullets">
+          <li>Led and coached a team of 15 QA analysts across multiple programs</li>
+          <li>Oversaw roughly 32 audits per QA daily across phone, chat, and email</li>
+          <li>Identified trends and partnered with ops on improvement plans</li>
+          <li>Supported certification, onboarding, and mentorship programs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="log-item reveal">
+      <div class="log-date">SEP 2022 &mdash; APR 2023<br>Remote<span class="log-tag part">Part-time</span></div>
+      <div>
+        <div class="log-role">Customer Service &amp; Sales Support</div>
+        <div class="log-company">INS LLC &mdash; Real Estate</div>
+        <p class="log-desc">Part-time outbound sales and CRM support for a US-based real estate company, run alongside my full-time role at Alorica.</p>
+        <ul class="log-bullets">
+          <li>Conducted outbound calls to qualify leads and build rapport</li>
+          <li>Handled objections and maintained CRM documentation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="log-item reveal">
+      <div class="log-date">JUL 2020 &mdash; JAN 2023<br>Remote<span class="log-tag part">Part-time</span></div>
+      <div>
+        <div class="log-role">E-commerce &amp; Virtual Support</div>
+        <div class="log-company">Empire Ecommerce / Wealth Accelerators</div>
+        <p class="log-desc">Part-time customer inquiries and operational support for Amazon and Facebook e-commerce channels, run alongside my full-time role at Alorica.</p>
+        <ul class="log-bullets">
+          <li>Managed customer inquiries, listings, orders, and inventory coordination</li>
+          <li>Conducted product research and maintained customer communications</li>
+        </ul>
+      </div>
+    </div>
+    <div class="log-item reveal">
+      <div class="log-date">MAY 2018 &mdash; JUL 2019<br>Onsite</div>
+      <div>
+        <div class="log-role">Customer Service &amp; Technical Support</div>
+        <div class="log-company">Wish &amp; DIRECTV</div>
+        <p class="log-desc">Front-line customer support for two major US companies &mdash; handling orders, refunds, and technical troubleshooting.</p>
+        <ul class="log-bullets">
+          <li>Resolved high-volume order, refund, and technical issues</li>
+          <li>Maintained consistent quality and productivity metrics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="section-head reveal">
+    <div class="eyebrow">Toolkit</div>
+    <h2 class="section-title">What's already in the gym bag.</h2>
+    <p class="section-sub">Comfortable across gym management platforms, CX tools, CRMs, and bookkeeping &mdash; and quick to pick up whatever your gym already runs on.</p>
+  </div>
+  <div class="tools-wrap reveal">
+    <div class="tool-chip">Gym Master</div>
+    <div class="tool-chip">Mindbody</div>
+    <div class="tool-chip">GoHighLevel</div>
+    <div class="tool-chip">Zendesk</div>
+    <div class="tool-chip">Gorgias</div>
+    <div class="tool-chip">Salesforce</div>
+    <div class="tool-chip">Xero</div>
+    <div class="tool-chip">Slack</div>
+    <div class="tool-chip">Google Workspace</div>
+    <div class="tool-chip">Canva</div>
+    <div class="tool-chip">Meta Business Suite</div>
+    <div class="tool-chip">Shopify</div>
+    <div class="tool-chip">Amazon Seller</div>
+    <div class="tool-chip">MS Office</div>
+    <div class="tool-chip">QA Monitoring Tools</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">Let's Talk</div>
+      <h2 class="section-title">Ready to hand off the inbox?</h2>
+      <p class="section-sub">Currently placed with a gym owner through WrkPod, so I take on new work part-time. If your needs are bigger than that, I can refer and personally supervise another trained VA on your account. Tell me what's eating your week &mdash; I'll tell you what I can take off your plate.</p>
+      <div class="contact-list">
+        <a href="mailto:tapisgeramel@gmail.com" class="contact-item">
+          <div class="ci-icon">&#9993;</div>
+          <div><div class="ci-label">Email</div><div class="ci-value">tapisgeramel@gmail.com</div></div>
+        </a>
+        <a href="https://linkedin.com/in/gerameltapis" target="_blank" class="contact-item">
+          <div class="ci-icon">&#128279;</div>
+          <div><div class="ci-label">LinkedIn</div><div class="ci-value">linkedin.com/in/gerameltapis</div></div>
+        </a>
+        <div class="contact-item">
+          <div class="ci-icon">&#127758;</div>
+          <div><div class="ci-label">Based in</div><div class="ci-value">Negros Oriental, Philippines</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">&#128336;</div>
+          <div><div class="ci-label">Time zone</div><div class="ci-value">GMT+8 &middot; AEST overlap</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">&#128313;</div>
+          <div><div class="ci-label">Status</div><div class="ci-value">Placed via WrkPod &middot; open part-time &amp; for VA referrals</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="form-msg success" id="fs-success">Message sent. I'll get back to you within 24 hours.</div>
+      <div class="form-msg error" id="fs-error">Something went wrong &mdash; please email me directly at <strong>tapisgeramel@gmail.com</strong>.</div>
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-name">Your name</label>
+            <input type="text" id="f-name" name="name" placeholder="Jake Mitchell" required>
+          </div>
+          <div class="form-field">
+            <label for="f-email">Email address</label>
+            <input type="email" id="f-email" name="email" placeholder="jake@ironpeakgym.com.au" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-gym">Gym or studio name</label>
+          <input type="text" id="f-gym" name="gym" placeholder="Iron Peak Gym, Melbourne">
+        </div>
+        <div class="form-field">
+          <label for="f-pillar">Where do you need the most help?</label>
+          <select id="f-pillar" name="pillar">
+            <option value="" disabled selected>Select a focus area...</option>
+            <option value="Admin">Admin &mdash; inbox, billing, member enquiries</option>
+            <option value="Sales">Sales &mdash; lead follow-up, CRM, conversions</option>
+            <option value="Content">Content &mdash; social media, Canva, scheduling</option>
+            <option value="Numbers">Numbers &mdash; Xero, bookkeeping, reports</option>
+            <option value="Full support">Full support &mdash; a bit of everything</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="f-message">What's taking up most of your week?</label>
+          <textarea id="f-message" name="message" placeholder="Tell me what you're currently handling yourself that you'd rather hand off." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">
+          Send message
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">RAM TAPIS</div>
+  <div class="footer-tag">Gym Intelligence Partner &mdash; the VA gym owners bring in when the inbox wins.</div>
+  <div class="footer-copy">&copy; 2026 Geramel Tapis</div>
+</footer>
+
+<script>
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => nav.classList.toggle("scrolled", window.scrollY > 30));
+
+const navToggle = document.getElementById("navToggle");
+const mobilePanel = document.getElementById("mobilePanel");
+navToggle.addEventListener("click", () => mobilePanel.classList.toggle("open"));
+mobilePanel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobilePanel.classList.remove("open")));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
+}, { threshold: 0.08 });
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+const form = document.getElementById("contact-form");
+if (form) {
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const btn = document.getElementById("submit-btn");
+    const successBox = document.getElementById("fs-success");
+    const errorBox = document.getElementById("fs-error");
+    successBox.style.display = "none";
+    errorBox.style.display = "none";
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+    const formData = new FormData(form);
+    try {
+      const response = await fetch("https://formspree.io/f/xzdyajze", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+      if (response.ok) {
+        successBox.style.display = "block";
+        form.reset();
+        form.style.display = "none";
+      } else {
+        errorBox.style.display = "block";
+        btn.disabled = false;
+        btn.innerHTML = 'Send message <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      }
+    } catch (err) {
+      errorBox.style.display = "block";
+      btn.disabled = false;
+      btn.innerHTML = 'Send message <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    }
+  });
+}
+</script>
+</body>
+</html>
