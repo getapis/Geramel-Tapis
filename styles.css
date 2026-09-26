@@ -31,3 +31,11 @@ footer{background:#141416;color:var(--chalk)}.footer-tag,.footer-copy{color:#c1b
 @media(max-width:1250px){.nav-links{display:none}.nav-toggle{display:block}}
 @media(max-width:760px){.nav-logo-text{font-size:12px;letter-spacing:-.3px}.nav-logo-sub{font-size:11px}.nav-right{gap:3px}.nav-toggle{padding:8px}.nav-cta{padding:8px 10px}.hero{background:#141416}.mobile-panel.open{top:75px}}
 @media(max-width:360px){.nav-logo-text{max-width:140px;line-height:1.25}.nav-logo-sub{font-size:10px}}
+
+/* Supplied hero photograph and systems portfolio */
+.hero{position:relative;isolation:isolate;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:#101012;min-height:800px;gap:80px}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,10,12,.55),rgba(10,10,12,.18) 52%,transparent 74%),url('geramel-background.png') center center/cover no-repeat}
+.hero-left{max-width:590px}.hero-right{align-self:end}.hero .roster{background:rgba(22,22,26,.94);margin-top:430px}.hero-name{font-size:clamp(40px,4.3vw,62px)}
+.systems{background:#e9e6de;border-top:1px solid var(--line)}.systems-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.system-card{border-top:3px solid var(--ember);padding:28px;background:#f9f7f1}.system-number{font-size:12px;letter-spacing:1.5px;color:var(--accent);font-weight:700}.system-card h3{font:800 25px/1.3 Manrope;margin:18px 0}.system-card p{color:var(--muted);font-size:16px}.system-card .system-detail{font-size:13px;padding-top:16px;border-top:1px solid var(--line);margin-bottom:0;color:var(--accent)}
+@media(max-width:1100px){.hero{gap:35px}.hero-name{font-size:46px}.hero .roster{margin-top:420px}}
+@media(max-width:760px){.hero{display:flex;flex-direction:column;gap:28px;padding-top:280px;min-height:0}.hero::before{background:linear-gradient(180deg,transparent 100px,#101012 320px),url('geramel-background.png') 65% top/auto 360px no-repeat}.hero .roster{margin-top:0}.hero-name{font-size:44px}.hero-right{align-self:center}.systems-grid{grid-template-columns:1fr}.system-card{padding:24px}}
