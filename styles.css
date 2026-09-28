@@ -42,3 +42,18 @@ footer{background:#141416;color:var(--chalk)}.footer-tag,.footer-copy{color:#c1b
 
 .toolkit-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.toolkit-group{border-top:1px solid var(--line);padding-top:20px}.toolkit-group h3{font:700 18px/1.4 Manrope;margin:0 0 18px}.toolkit-group .tools-wrap{gap:8px}.toolkit-group .tool-chip{padding:8px 12px;font-size:14px;background:#fffdfa}
 @media(max-width:760px){.toolkit-groups{grid-template-columns:1fr;gap:26px}}
+
+/* About profile card */
+.about-grid{grid-template-columns:minmax(340px,.9fr) minmax(0,1.35fr);align-items:start;gap:72px}
+.about-feature{position:relative;overflow:hidden;min-height:620px;padding:42px 42px 0;background:#17181c;color:var(--chalk);border-radius:12px;box-shadow:0 26px 70px rgba(27,28,33,.13)}
+.about-feature::after{content:"";position:absolute;inset:auto -90px -110px auto;width:290px;height:290px;border:1px solid rgba(255,75,46,.2);border-radius:50%;box-shadow:0 0 0 44px rgba(255,75,46,.05),0 0 0 88px rgba(255,75,46,.025);pointer-events:none}
+.about-feature .eyebrow{color:#ff795f;margin-bottom:22px}
+.about-feature .about-quote{position:relative;z-index:1;max-width:420px;font-size:clamp(30px,3vw,44px);line-height:1.18;letter-spacing:-1.6px}
+.about-feature .about-quote span{color:#ff795f}
+.about-portrait-wrap{position:absolute;left:0;right:0;bottom:0;height:300px;overflow:hidden;background:linear-gradient(145deg,#23242a,#18191d);border-top:1px solid #393a40}
+.about-photo{position:absolute;left:50%;bottom:0;width:275px;max-width:none;height:285px;margin:0;transform:translateX(-50%);object-fit:contain;object-position:center bottom;background:none;border-radius:0;filter:drop-shadow(0 18px 22px rgba(0,0,0,.3))}
+.about-portrait-caption{position:absolute;left:22px;right:22px;bottom:18px;z-index:2;padding:13px 15px;background:rgba(20,20,22,.88);border:1px solid rgba(243,241,234,.16);border-radius:7px;backdrop-filter:blur(8px)}
+.about-portrait-caption strong,.about-portrait-caption span{display:block}.about-portrait-caption strong{font:700 15px Manrope}.about-portrait-caption span{margin-top:2px;color:#c1bdb5;font-size:12px;letter-spacing:.02em}
+.about-text{padding-top:8px}.about-text p{font-size:17px;line-height:1.78;margin-bottom:20px}.traits{padding-top:28px;border-top:1px solid var(--line)}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:44px}.about-feature{min-height:610px}.about-text{padding-top:0}}
+@media(max-width:760px){.about-feature{min-height:570px;padding:32px 26px 0}.about-feature .about-quote{font-size:34px}.about-portrait-wrap{height:270px}.about-photo{width:245px;height:255px}.about-portrait-caption{left:16px;right:16px;bottom:14px}.about-grid{gap:38px}.traits{grid-template-columns:1fr}}
